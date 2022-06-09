@@ -22,7 +22,7 @@ Route::get('/', function (NordigenService $nordigen) {
 
 Route::get('/agreements/{id}', function (NordigenService $nordigen) {
     $id = request()->route()->parameter('id');
-    $redirectUrl = 'http://localhost/N2/example/public/results';
+    $redirectUrl = 'https://nordigen.capiq.se/results';
     $data = $nordigen->getSessionData($redirectUrl, $id);
     session(['requisitionId' => $data["requisition_id"]]);
     return redirect()->away($data["link"]);
